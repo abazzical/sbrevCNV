@@ -1,0 +1,19 @@
+#!/bin/bash
+#SBATCH --ntasks=1
+#SBATCH --mem=100000M
+#SBATCH --job-name=top1allscaffoldsgffintersect
+#SBATCH --time=10:00:00
+#SBATCH --mail-user=mason.munro.ehrlich@gmail.com
+#SBATCH --mail-type=END
+module load bedtools/2.26.0
+intersectBed -a /mnt/lustrefs/store/brancolab/2019fallProjects/masonmunroScripts/top1allscaffolds -b /mnt/lustrefs/store/brancolab/2019fallProjects/sbrevRef/Suibr2_all_genes_20150912.gff -wb > /mnt/lustrefs/store/brancolab/2019fallProjects/masonmunroScripts/top1allscaffoldsannotated
+
+#!/bin/bash
+#SBATCH --ntasks=1
+#SBATCH --mem=100000M
+#SBATCH --job-name=top1geneintersect
+#SBATCH --time=10:00:00
+#SBATCH --mail-user=mason.munro.ehrlich@gmail.com
+#SBATCH --mail-type=END
+module load bedtools/2.26.0
+intersectBed -a /mnt/lustrefs/store/brancolab/2019fallProjects/masonmunroScripts/vstgff -b /mnt/lustrefs/store/brancolab/2019fallProjects/sbrevRef/Suibr2_all_genes_20150912.gff -wb > /mnt/lustrefs/store/brancolab/2019fallProjects/masonmunroScripts/topgenesmess
